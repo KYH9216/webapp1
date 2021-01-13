@@ -1,0 +1,46 @@
+@xxxx 어노테이션
+component 베이스패키지 경로에 어노테이션이 있다면 객체생성
+ 
+요청에 대한 메소드를 연결해 준다 = request mapping
+ 
+content라는 요청이 왔을때 어떤 메소드와 연결시켜줄 것이냐? 
+content라는 메소드가 있으면 content 메소드를 실행하겠다. 이렇게 요청에 메소드를 연결해주는것이 리퀘스트 맵핑
+ 
+ 브라우저가  dispatcher1 이나 2를 요청할 떄가 있다. 1이 어떤 url mapping으로 연결되어 있느냐.
+ 경로 상에서  http://../dispatcher1/...같은 경우  web.xml에서 dispatcher1은 dispatcher1에서 처리하게 연결해놨다.
+ http://../dispatcher2/....
+ 
+ Controller 요청을 받아주는 기능을 한다.
+ 
+ 
+ @Resource 는 요청이 오면 일단 리소스가 있는 객체자체에서 찾고 만약 객체에 없다면 리소스와 연결된 객체에서 찾는다.
+ 찾는곳에 값이 있으면 가지고온다.
+ 
+ 공통된 요소는 root에 만들어 놨다가 Resource로 꺼내쓰면 중복을 피할 수 있다.
+ 
+브라우저의 요청  http://../webapp1/dispatcher1/content => distpatcher1의 content를 요청
+ 
+dispatcher1의 HomeController안에 메소드 content가 어노테이션으로 @Requestmapping을 같고 있다면
+
+@Requestmapping("/content")
+public String method{
+
+	return "content"
+}
+
+이렇게 되어있다면  요청 url맨뒤에 content와 리퀘스트 맵핑 괄호안의 content가 똑같아야 한다. content외에 것들은 문법이다.
+return값은 뷰의 이름이다. 이 리턴값을 받은 
+
+viewResolver가  리턴값앞에 /WEB-INF/views/dispatcher1/content(return값).jsp를 자동으로 붙여준다. 이 역할을 하는게 뷰리졸버
+
+리퀘스트 맵핑을 메소드마다 주고 url의 마지막을 맵핑에 맞게주면 여러가지를 모두 사용 가능하다.
+url의 마지막과 맵핑값은 같아야하고 꼭 이 것과 메소드이름, 리턴값이 같을 필요는 없다.
+
+
+
+.jsp 파일은 톰캣이 실행하면서 .java로 바꾸고 컴파일이 되면서 .class가 되고 class로 객체생성을 하고 객체의 메소드를 실행해서 실행된 결과가 .jsp 파일의 루트엘리먼트 부분이다
+jsp에서는 주석을 <%-- --%> 로 단다.
+
+jsp코드는 <% %> 사이에 작성한다.
+<%= %>는 이 자리에 값을 넣겠다 라는 뜻  변수가 되었든, 연삭식, 값이든 넣겠다.
+< 자리부터 채워진다.

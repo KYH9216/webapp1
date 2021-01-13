@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J 1.2//EN" "http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+	<appender name="console" class="org.apache.log4j.ConsoleAppender"><!-- 콘솔에 출력하도록 만든다. -->
+		<param name="Target" value="System.out" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-5p: %c.%M() - %m%n" />
+		</layout>
+	</appender>
+
+	<logger name="com.mycompany"><!-- com.mycompany 패키지 안에서만 출력한다.	 --><!-- 패키지 별로 로그 레벨을 정할 수 있다. -->
+	<!-- 새로운 패키지를 만들면 네임만 바꾸고 똑같이 적용하면 된다. -->
+		<level value="error" />
+	<!-- 에러에도 단계가 있다. error가 제일 심각 debug단계면 에러까지 실행 다됨, 인포단계면 디버그 빼고 실행 -->	
+	<!-- 로그레벨 : debug < info < warn < error  -->
+	</logger>	
+	
+	<!-- SQL 로깅 -->
+	<!-- <logger name="jdbc.sqltiming">
+		<level value="info" />
+	</logger> -->
+
+	<root><!-- 아무 설정이 없을때 적용할 기본 사항 -->
+		<priority value="warn" />
+		<appender-ref ref="console" />
+	</root>
+</log4j:configuration>
+

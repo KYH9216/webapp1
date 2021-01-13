@@ -1,0 +1,32 @@
+소스 경로에 절대경로로 Context root를 주면 Context root를 바꿀때마다 모든 소스를 바꿔야한다.
+그 귀찮음을 벗어나기 위하여 <%=application.getContextPath()%>를 쓰면 현재 Context root를 반환해준다.
+꼭 =을 넣어준다.
+
+
+동기, 비동기
+
+
+비동기는 요청을 기다리지 않고 먼저 실행한다.
+네이버 메인창에서 오늘 읽을만한 글을 주제를 클릭할때 페이지가 바뀌는걸 기다리지 않고 기본 메인창을 계속 실행시킨다. 메인창의 기능을 사용할 수 있다.
+동기라면 바뀌기전까지 메인창을 사용 못한다.
+비동기 Jquery, Ajax=비동기적 자바스크립트와 XML
+e
+Git 저장소를 생성, 운영하기 위한 명령어 프로그램
+GitHub 저장소를 제공하는 사이트
+
+webapp1의 build,와 target은 꼭 제외하고 github에 넣는다.
+
+
+Local PC(Development PC)
+
+
+GithHub Repository
+
+
+1. 뭔가를 개발하고 생성하고 수정했다. 작성한 프로젝트를 local에 저장한다.<commit> .git 폴더에 저장한다.
+
+2. 로컬에 저장한걸 원격 저장소에 저장한다. <push>
+
+
+
+

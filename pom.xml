@@ -1,0 +1,63 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <!-- 프로젝트 기본 정보 -->
+  <groupId>webapp1</groupId><!-- 누가만들었따 -->
+  <artifactId>webapp1</artifactId><!-- 프로젝트이름 -->
+  <version>0.0.1-SNAPSHOT</version><!-- 버전,스냅샷이있으면 아직 개발중 -->
+  <packaging>war</packaging><!-- 최종 산출물 형태 -->
+  
+  
+  
+  <build>
+    <plugins>
+      <plugin><!-- 컴파일용 플러그인 -->
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+      
+      <plugin><!-- 압축용 플러그인  -->
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.2.3</version>
+        <configuration>
+          <warSourceDirectory>WebContent</warSourceDirectory><!-- WebContent의 내용을 압축해 war를 만들겠다.  -->
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+	 <dependencyManagement><!-- 다운받는걸 관리한다.다운로드 받을때 매니지 먼트 밑에 있는 코드를 참고해서 다운받는다. --><!-- 스프링과 관련된 라이브러리를 관리한다. -->
+	 	<dependencies>
+	 		<dependency>
+			    <groupId>org.springframework</groupId>
+			    <artifactId>spring-framework-bom</artifactId>
+			    <version>5.2.8.RELEASE</version><!-- 무조건 이 버전과 관련된 것만 다운 받게 한다. -->
+			    <type>pom</type>
+			    <scope>import</scope> <!-- import를 설정하면 호환되는 것만 다운로드 받는다. -->
+	 		</dependency>
+	 	</dependencies>
+	 </dependencyManagement> 
+  
+  	<dependencies>
+   		<dependency>
+		    <groupId>org.slf4j</groupId>
+		    <artifactId>slf4j-log4j12</artifactId><!-- 우리 프로젝트는 이 프로젝트에 의존한다. -->
+		    <version>1.7.30</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-webmvc</artifactId><!-- 우리 프로젝트는 이 프로젝트에 의존한다. -->
+		   <!-- 위에 5.2.8. import했기때문에 버전 생략한다. 5.2.8.과 호환되는 것만 알아서 다운 받는다. -->
+		</dependency>
+	</dependencies>
+	
+  
+</project>
+
+
+
+
